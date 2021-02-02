@@ -1,0 +1,83 @@
+﻿@model IEnumerable<CadastroDeFundosWebApp.Models.FundoModel>
+
+@{
+    ViewBag.Title = "Lista de fundos";
+}
+
+<h2>Selecione um fundo para importar</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeFantasia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoDoSistema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gestor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Custodiante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Administrador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxaDeAdministracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiasParaLiquidacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResgateAutomatico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNPJ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeFantasia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoDoSistema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gestor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Custodiante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Administrador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxaDeAdministracao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiasParaLiquidacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResgateAutomatico)
+        </td>
+        <td>
+            @Html.ActionLink("Exportar", "CreateImport", new { id=item.CodigoDoSistema })
+
+        </td>
+    </tr>
+}
+
+</table>

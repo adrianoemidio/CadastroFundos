@@ -1,0 +1,103 @@
+﻿@model IEnumerable<CadastroDeFundosWebApp.Models.FundoModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>@ViewBag.Message</h2>
+
+@using (Html.BeginForm("Search","Home", FormMethod.Post))
+{
+<div class="col-md-4">
+    <input type="text" name="searchValue" id="searchValue" />
+    @Html.DropDownList("SearchType", String.Empty)
+    <input type="submit" value="Procurar" class="btn btn-default" />
+</div>
+}
+
+<p>
+    @Html.ActionLink("Criar novo Fundo", "Create")
+</p>
+
+@if (Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeFantasia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoDoSistema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gestor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Custodiante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Administrador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxaDeAdministracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiasParaLiquidacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResgateAutomatico)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeFantasia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoDoSistema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gestor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custodiante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Administrador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxaDeAdministracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiasParaLiquidacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResgateAutomatico)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CodigoDoSistema }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodigoDoSistema }) |
+                @Html.ActionLink("Histórico", "HistorySearch", new { id = item.CodigoDoSistema })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+}

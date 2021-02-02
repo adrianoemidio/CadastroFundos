@@ -1,0 +1,130 @@
+﻿@model IEnumerable<CadastroDeFundosWebApp.Models.FundoHistoryModel>
+
+@{
+    ViewBag.Title = "Histórico";
+}
+
+<h2>Buscar no histórico</h2>
+
+ @using (Html.BeginForm("HistorySearch", "Home", FormMethod.Post))
+    {
+<div class="col-md-4">
+    <div class="col-md-4">
+        <h4>Data</h4>
+        <div>
+            Dia
+            <input type="number" name="dayValue" id="dayValue" />
+        </div>
+        <div>
+            Mês
+            <input type="number" name="monthValue" id="monthValue" />
+        </div>
+        <div>
+            Ano
+            <input type="number" name="yearValue" id="yearValue" />
+        </div>
+
+        <div>
+            Horas
+            <input type="number" name="hourValue" id="hourValue" />
+        </div>
+        <div>
+            Minutos
+            <input type="number" name="minValue" id="minValue" />
+        </div>
+
+        <input type="submit" value="Procurar" class="btn btn-default" />
+
+    </div>
+</div>
+   }
+
+    @if (Model != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CNPJ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RazaoSocial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeFantasia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodigoDoSistema)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gestor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Custodiante)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Administrador)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TaxaDeAdministracao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiasParaLiquidacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResgateAutomatico)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndTime)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CNPJ)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RazaoSocial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeFantasia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoDoSistema)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gestor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Custodiante)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Administrador)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaxaDeAdministracao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiasParaLiquidacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResgateAutomatico)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    }
+
